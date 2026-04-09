@@ -6,7 +6,7 @@ import { Text, View } from "react-native";
 
 function Info() {
   return (
-    <View className="flex-row items-center justify-center my-2 gap-2">
+    <View className="flex-row items-center justify-center my-6 gap-2">
       <View className="flex-1 items-center bg-white shadow rounded-3xl p-4">
         <Feather name="sunrise" size={24} color="black" />
         <Text className="text-lg text-purpleDark font-bold">6:00</Text>

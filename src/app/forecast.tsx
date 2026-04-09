@@ -1,7 +1,7 @@
-import Content from "@/components/home/content";
-import Header from "@/components/home/header";
+import Header from "@/components/forecast/header";
+import Today from "@/components/forecast/today";
+import WeatherList from "@/components/forecast/weatherList";
 import Info from "@/components/home/info";
-import InputBox from "@/components/home/inputBox";
 import { StatusBar } from "expo-status-bar";
 import React from "react";
 import {
@@ -13,7 +13,7 @@ import {
 } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 
-export default function Index() {
+function Forecast() {
   return (
     <View style={{ flex: 1 }}>
       <ImageBackground
@@ -23,11 +23,11 @@ export default function Index() {
         blurRadius={5}
       >
         <SafeAreaView style={styles.container}>
-          <View className="px-8">
+          <View className="flex-1 px-8">
             <Header />
-            <InputBox />
-            <Content />
+            <Today />
             <Info />
+            <WeatherList />
             <Text className="text-center text-secondaryDark text-sm my-8">
               Demo Weather App - JK Coder
             </Text>
@@ -38,6 +38,8 @@ export default function Index() {
     </View>
   );
 }
+
+export default Forecast;
 
 const styles = StyleSheet.create({
   container: {
