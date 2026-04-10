@@ -4,13 +4,7 @@ import WeatherList from "@/components/forecast/weatherList";
 import Info from "@/components/home/info";
 import { StatusBar } from "expo-status-bar";
 import React from "react";
-import {
-  ImageBackground,
-  Platform,
-  StyleSheet,
-  Text,
-  View,
-} from "react-native";
+import { ImageBackground, StyleSheet, Text, View } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 
 function Forecast() {
@@ -44,6 +38,5 @@ export default Forecast;
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    paddingTop: Platform.OS === "android" ? 30 : 0,
   },
 });

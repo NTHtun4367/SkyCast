@@ -1,26 +1,30 @@
-import Ionicons from "@expo/vector-icons/Ionicons";
 import React from "react";
-import { Text, View } from "react-native";
-import { Weather } from "./weatherList";
+import { Image, ImageSourcePropType, Text, View } from "react-native";
 
 interface WeatherItemProps {
-  item: Weather;
+  day: string;
+  temp: number;
+  weatherCondition: string;
+  wImage: ImageSourcePropType;
 }
 
-function WeatherItem({ item }: WeatherItemProps) {
-  const { day, weather, temp } = item;
-
+function WeatherItem({
+  day,
+  temp,
+  weatherCondition,
+  wImage,
+}: WeatherItemProps) {
   return (
     <View className="flex-row items-center justify-between border-b border-secondaryDark/20 pb-4 my-2">
       <Text className="text-xl text-purpleDark font-bold">{day}</Text>
       <View className="flex-row items-center justify-items-start gap-2">
-        <Ionicons name="sunny-outline" size={30} color="black" />
+        <Image source={wImage} className="w-9 h-9" />
         <Text className="text-left text-lg font-semibold text-purpleDark">
-          {weather}
+          {weatherCondition}
         </Text>
       </View>
       <Text className="text-right text-2xl font-bold text-purpleDark">
-        {temp}
+        {temp.toFixed()}°
       </Text>
     </View>
   );

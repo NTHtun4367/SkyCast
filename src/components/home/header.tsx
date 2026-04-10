@@ -4,7 +4,11 @@ import { Link } from "expo-router";
 import React from "react";
 import { Pressable, Text, View } from "react-native";
 
-function Header() {
+interface HeaderProps {
+  city: string;
+}
+
+function Header({ city }: HeaderProps) {
   return (
     <View className="flex-row justify-between items-center mt-6 mb-6">
       <Pressable hitSlop={20}>
@@ -14,7 +18,7 @@ function Header() {
       </Pressable>
       <View className="flex-row items-center">
         <Ionicons name="location" size={28} color={Theme.orange} />
-        <Text className="text-2xl font-bold">Yangon</Text>
+        <Text className="text-2xl font-bold">{city || "Loading..."}</Text>
       </View>
       <Pressable hitSlop={20}>
         <Link href={"/forecast"}>

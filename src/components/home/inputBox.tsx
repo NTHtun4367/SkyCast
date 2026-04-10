@@ -1,23 +1,48 @@
 import { Theme } from "@/constants/theme";
 import MaterialCommunityIcons from "@expo/vector-icons/MaterialCommunityIcons";
-import React from "react";
-import { TextInput, View } from "react-native";
+import React, { useState } from "react";
+import { StyleSheet, TextInput, View } from "react-native";
 
-function InputBox() {
+interface InputBoxProps {
+  searchLocationByCity: (city: string) => void;
+}
+
+function InputBox({ searchLocationByCity }: InputBoxProps) {
+  const [text, setText] = useState("");
+
+  const handleSearch = () => {
+    if (text.trim().length > 0) {
+      searchLocationByCity(text.trim());
+      setText("");
+    }
+  };
+
   return (
     <View className="relative">
       <TextInput
         placeholder="City name"
-        className="bg-gray-100 shadow rounded-xl p-4 mb-6 ps-14 placeholder:font-bold placeholder:text-secondaryDark"
+        value={text}
+        onChangeText={setText}
+        className="bg-white/90 shadow rounded-xl p-4 mb-6 ps-14 placeholder:font-bold placeholder:text-secondaryDark border-2 border-secondaryDark"
+        onSubmitEditing={handleSearch}
+        returnKeyType="search"
       />
       <MaterialCommunityIcons
         name="cloud-search-outline"
-        size={24}
+        size={26}
         color={Theme.secondaryDark}
-        className="absolute top-3 left-4"
+        style={styles.icon}
       />
     </View>
   );
 }
+
+const styles = StyleSheet.create({
+  icon: {
+    position: "absolute",
+    top: 12,
+    left: 16,
+  },
+});
 
 export default InputBox;
