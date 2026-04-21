@@ -16,7 +16,7 @@
 
 ## 🛠️ Tech Stack
 
-  * **Framework:** [React Native](https://reactnative.dev/)
-  * **Styling:** [NativeWind](https://www.nativewind.dev/)
+  * **Framework:** [React Native](https://reactnative.dev/) (Expo)
+  * **Styling:** [NativeWind](https://www.nativewind.dev/) (Tailwind CSS)
   * **Data Source:** [Weather API](https://www.weatherapi.com/)
-  * **Icons:** [Vector Icons](https://github.com/oblador/react-native-vector-icons)
+  * **Icons:** [@expo/vector-icons](https://docs.expo.dev/guides/icons/) v15.0.3
